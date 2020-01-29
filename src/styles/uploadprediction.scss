@@ -1,0 +1,33 @@
+canvas {
+  display: none;
+}
+
+.box {
+  stroke-width: 2;
+  fill: none;
+  stroke: red;
+}
+.label {
+  font-size: 12px;
+  fill: white;
+  text-anchor: middle;
+}
+.label-rect {
+  fill: black;
+}
+
+.prediction_box {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  position: absolute;
+  /* top:0;
+  left:0; */
+}
