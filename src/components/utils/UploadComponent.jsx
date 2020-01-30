@@ -56,7 +56,19 @@ export default function DragDropFile(props) {
     <div
       ref={dragdrop_container}
       className="dragdrop_container"
-      style={{ display: "inline-block", position: "relative" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        aligItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        width: 150,
+        margin: "35% auto",
+        marginBottom: "2%",
+        border: "1px solid black",
+        padding: "2%",
+        borderRadius: "20px"
+      }}
     >
       {dragging && (
         <div

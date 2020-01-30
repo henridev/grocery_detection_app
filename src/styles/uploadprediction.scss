@@ -26,8 +26,44 @@ canvas {
   justify-content: center;
 }
 
-svg {
+.prediction_container {
   position: absolute;
-  /* top:0;
-  left:0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  top: 10px;
+  bottom: 0;
+}
+
+.prediction_container img,
+.prediction_container svg {
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.uploadPage #file {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.uploadPage label {
+  cursor: pointer;
+  /* Style as you please, it will become the visible UI component. */
+}
+
+.hidden {
+  display: none;
+}
+
+.uploadPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

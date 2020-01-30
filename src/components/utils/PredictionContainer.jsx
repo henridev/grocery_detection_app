@@ -1,0 +1,33 @@
+import React, { useRef, useState } from "react";
+
+import drawBoxes from "../../assets/js/draw_boxes.js";
+import Webcam from "../utils/Webcam.jsx";
+
+export default function UploadPage(props) {
+  const { model } = props;
+  const [predictions, setPredictions] = useState(null);
+
+  const imageRef = useRef();
+  const svgRef = useRef();
+
+  const handlePrediction = async e => {
+    const image = imageRef.current;
+    const svg = svgRef.current;
+    svg.setAttribute("width", image.width);
+    svg.setAttribute("height", image.height);
+    const options = { score: 0.4, iou: 0.4, topk: 20 };
+    const results = await model.detect(image, options);
+    console.log(results);
+    drawBoxes(results, image, svg);
+    setPredictions(results);
+    e.preventDefault();
+  };
+
+  return (
+    <div id="prediction_container" className="hidden">
+      <canvas id="canvas" ref={canvasRef}></canvas>
+      <img alt="photoRef placeholder" id="photoRef" ref={photoRef} />
+      <svg ref={svgRef}></svg>
+    </div>
+  );
+}

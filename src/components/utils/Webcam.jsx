@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import drawBoxes from "../../assets/js/draw_boxes.js";
+import CameraIcon from "@material-ui/icons/Camera";
+import Fab from "@material-ui/core/Fab";
 import mobileCheck from "../../assets/js/mobileCheck.js";
 
 export default function Webcam(props) {
@@ -51,24 +53,19 @@ export default function Webcam(props) {
 
     const predictions = await model.detect(photo, options);
     console.log(predictions);
-    drawBoxes(predictions, photo.current, svgRef.current);
+    drawBoxes(predictions, photo, svgRef);
     // Show the resulting object on the page.
     e.preventDefault();
   };
 
   return (
     <div>
-      <div class="prediction_box"></div>
-      <div id="container">
+      <div id="video_container">
         <video autoPlay="true" id="videoElement" ref={videoRef}></video>
       </div>
-      <button id="capture">capture imageRef</button>
-      <div id="prediction_container">
-        <canvas id="canvas" ref={canvasRef}></canvas>
-        <img alt="photoRef placeholder" id="photoRef" ref={photoRef} />
-        <svg ref={svgRef}></svg>
-      </div>
-      <button onClick={handleTakePicture}>take picture</button>
+      <Fab color="primary" onClick={handleTakePicture}>
+        <CameraIcon />
+      </Fab>
     </div>
   );
 }
