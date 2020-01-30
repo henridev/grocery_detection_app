@@ -1,5 +1,5 @@
 export default function drawBoxes(predictions, photo, svg) {
-  svg.parentNode.replaceChild(svg.cloneNode(false), svg);
+  // svg.parentNode.replaceChild(svg.cloneNode(false), svg);
   svg.setAttribute("width", photo.width);
   svg.setAttribute("height", photo.height);
   predictions.forEach(prediction => {

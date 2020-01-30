@@ -1,0 +1,24 @@
+#video_container {
+  margin-top: 10%;
+}
+
+#prediction_container canvas {
+  display: none;
+}
+
+#prediction_container {
+  position: relative;
+  z-index: -1;
+  top: 10px;
+  bottom: 0;
+}
+
+#prediction_container img,
+#prediction_container svg {
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
